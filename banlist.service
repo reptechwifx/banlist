@@ -1,0 +1,13 @@
+[Unit]
+Description=SSH/Telnet Auth Log Monitor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u /opt/banlist/banlist.py --port 8080
+WorkingDirectory=/opt/banlist/html
+Restart=on-failure
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
